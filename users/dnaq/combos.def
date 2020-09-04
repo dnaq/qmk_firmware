@@ -1,0 +1,2 @@
+COMB(lsftRsftCapsWord, KC_NO, KC_LSFT, KC_RSFT)
+COMB(lsftSpcCapsWord, KC_NO, OSM_SFT, KC_SPC)
