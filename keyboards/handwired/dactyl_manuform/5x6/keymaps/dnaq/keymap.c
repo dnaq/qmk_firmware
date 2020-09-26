@@ -41,13 +41,15 @@ enum custom_keycodes {
 const uint16_t PROGMEM sd_esc[] = { KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM df_tab[] = { KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM kx_tilde[] = { KC_K, KC_X, COMBO_END};
-const uint16_t PROGMEM kl_col[] = { KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM jk_col[] = { KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM kl_ent[] = { KC_K, KC_L, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(sd_esc, KC_ESC),
     COMBO(df_tab, KC_TAB),
     COMBO(kx_tilde, KC_TILD),
-    COMBO(kl_col, KC_COLN),
+    COMBO(jk_col, KC_COLN),
+    COMBO(kl_ent, KC_ENT),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -57,16 +59,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_LCTL , KC_A , KC_S    , KC_D    , KC_F , KC_G ,		KC_H , KC_J , KC_K    , KC_L   , KC_SCLN , KC_QUOT         ,
      KC_LSFT , KC_Z , KC_X    , KC_C    , KC_V , KC_B ,		KC_N , KC_M , KC_COMM , KC_DOT , KC_SLSH , KC_RSFT         ,
 		      KC_LEFT , KC_RGHT 				    , KC_DOWN , KC_UP  ,
-					  KC_BSPC,  KC_TAB, KC_SPC , KC_ENT ,
-					  RAISE  , KC_LGUI, KC_DEL , LOWER  ,
-					  KC_LCTL, KC_LALT, KVM_SW , KC_RALT
-  ), 
+					  KC_BSPC,  KC_TAB,  KC_SPC, KC_ENT ,
+					    RAISE, KC_LGUI, KC_LEAD, LOWER  ,
+					  KC_LCTL, KC_LALT,  KC_DEL, KC_RALT
+  ),
   [_LOWER] = LAYOUT_5x6(
        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
-     _______, _______,    KC_7,    KC_8,    KC_9, _______,		_______,    KC_7,    KC_8,    KC_9, _______, _______,
-     KC_CAPS, _______,    KC_4,    KC_5,    KC_6, _______,              _______,    KC_4,    KC_5,    KC_6, _______, _______,
-     _______, _______,    KC_1,    KC_2,    KC_3, _______,		_______,    KC_1,    KC_2,    KC_3, _______, _______,
-		          KC_0,  KC_DOT                                                 ,    KC_0,  KC_DOT,
+     _______,	 KC_1,    KC_2,    KC_3,    KC_4,    KC_5,		   KC_6,    KC_7,    KC_8,    KC_9,    KC_0, _______,
+     KC_CAPS, _______, _______, _______, _______, _______,		_______, _______, _______, _______, _______, _______,
+     _______, _______, _______, _______, _______, _______,		_______, _______, _______, _______, _______, _______,
+		       KC_HOME,  KC_END                                                 , KC_PGDN, KC_PGUP,
 					  _______, _______, _______, _______,
 					  ADJUST , _______, _______, ADJUST ,
 					  _______, _______, _______, _______ 
@@ -81,67 +83,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 					  ADJUST , _______, _______, ADJUST ,
 					  _______, _______, _______, _______ 
   ),
-  /*
-  [_NUM] = LAYOUT_5x6(
-     KC_F11 ,  KC_F1 ,  KC_F2 ,  KC_F3 ,  KC_F4 ,  KC_F5 ,		 KC_F6 ,  KC_F7 ,  KC_F8 ,  KC_F9 , KC_F10 , KC_F11 ,
-     KC_GRV ,  KC_1  ,   KC_2 ,  KC_3  ,   KC_4 ,   KC_5 ,		  KC_6 ,   KC_7 ,   KC_8 , KC_9   , KC_0   , _______,
-     _______, _______, _______, _______, _______, _______,		KC_LEFT, KC_DOWN,  KC_UP , KC_RGHT, _______, _______,
-     _______, _______, _______, _______, _______, _______,		KC_HOME, KC_PGDN, KC_PGUP, KC_END , _______, _______,
-		       _______, _______                                                 , _______, _______,
-					  _______, _______, _______, _______,
-					  ADJUST , _______, _______, _______,
-					  KC_RCTL, _______, _______, _______ 
-  ),
-  [_SYM] = LAYOUT_5x6(
-     KC_F11 ,  KC_F1 ,  KC_F2 ,  KC_F3 ,  KC_F4 ,  KC_F5 ,		 KC_F6 ,  KC_F7 ,  KC_F8 ,  KC_F9 , KC_F10 , KC_F11 ,
-     KC_TILD, KC_EXLM,  KC_AT , KC_HASH, KC_DLR ,KC_PERC , 		KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_UNDS,
-     _______, _______, _______, KC_LPRN, KC_LCBR,KC_LBRC ,		KC_RBRC, KC_RCBR, KC_RPRN, _______, _______, _______,
-     _______, _______, _______, _______, _______,_______ ,		_______, _______, _______, _______, _______, _______,
-		       KC_LCBR, KC_RCBR                                                 , _______, _______,
-					  _______, _______, _______, _______,
-					  _______, _______, _______, ADJUST ,
-					  _______, _______, _______, _______ 
-  ),
-  [_RAISE] = LAYOUT_5x6(
-     _______, _______, _______, _______, _______, _______,		_______, _______, _______, _______, _______, _______,
-     _______, KC_EXLM,  KC_AT ,  KC_UP , KC_LCBR, KC_RCBR,		KC_BSLS,   KC_7 ,   KC_8 ,   KC_9 , KC_ASTR, _______,
-     _______, KC_HASH, KC_LEFT, KC_DOWN, KC_RGHT, KC_DLR ,		KC_EQL ,   KC_4 ,   KC_5 ,   KC_6 , KC_MINS, _______,
-     _______, KC_LBRC, KC_RBRC, KC_LPRN, KC_RPRN, KC_AMPR,		KC_GRV ,   KC_1 ,   KC_2 ,   KC_3 , KC_PLUS, _______,
-		       _______, _______                                                 ,   KC_0 , _______,
-					  _______, _______, _______, _______,
-					  _______, _______, ADJUST , _______,
-					  _______, _______, _______, _______ 
-  ),
-  [_LOWER] = LAYOUT_5x6(
-     _______, _______, _______, _______, _______, _______,		_______, _______, _______, _______, _______, _______,
-     _______, KC_ESC , KC_QUES, KC_UNDS, KC_F1  , KC_F2  ,		KC_F3  , KC_F4  , KC_MINS, KC_SLSH, KC_BSPC, _______,
-     _______, KC_LSFT, KC_TAB , KC_PGUP, KC_F5  , KC_F6  ,		KC_F7  , KC_F8  , KC_HOME, KC_LALT, KC_ENT , _______,
-     _______, KC_CLCK, KC_SLCK, KC_PGDN, KC_F7  , KC_F8  ,		KC_F11 , KC_F12 , KC_END , KC_INS , KC_SLSH, _______,
-		       _______, _______                                                 , _______, _______,
-					  _______, _______, _______, _______,
-					  _______, ADJUST , _______, _______,
-					  _______, _______, _______, _______ 
-  ),
-  [_RAISE] = LAYOUT_5x6(
-     _______, _______, _______, _______, _______, _______,		_______, _______, _______, _______, _______, _______,
-     KC_GRV ,  KC_1  ,   KC_2 ,  KC_3  ,   KC_4 ,   KC_5 ,		  KC_6 ,   KC_7 ,   KC_8 , KC_9   , KC_0   , KC_UNDS,
-     KC_TILD, KC_EXLM,  KC_AT , KC_HASH, KC_DLR ,KC_PERC , 		KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DQUO,
-     _______, _______, _______, _______, _______, _______,		_______, _______, _______, _______, _______, KC_PIPE,
-		       KC_LCBR, KC_RCBR                                                 , _______, _______,
-					  KC_BSPC, _______, _______, _______,
-					  _______, _______, ADJUST , _______,
-					  _______, _______, _______, _______ 
-  ),
-  [_LOWER] = LAYOUT_5x6(
-     KC_F11 ,  KC_F1 ,  KC_F2 ,  KC_F3 ,  KC_F4 ,  KC_F5 ,		 KC_F6 ,  KC_F7 ,  KC_F8 ,  KC_F9 , KC_F10 , KC_F11 ,
-     _______, _______, _______, _______, _______, _______,		KC_HOME, KC_PGDN, KC_PGUP, KC_END , _______,  EU_AA ,
-     _______, _______, _______, _______, _______, _______,		KC_LEFT, KC_DOWN,  KC_UP , KC_RGHT,  EU_OE ,  EU_AE ,
-     _______, _______, _______, _______, _______, _______,		_______, _______, _______, _______, _______, _______,
-		       _______, _______                                                 , _______, _______,
-					  _______, _______, _______, KC_ENT ,
-					  _______, ADJUST , _______, _______,
-					  _______, _______, _______, _______ 
-  ),*/
   [_ADJUST] = LAYOUT_5x6(
       RESET , _______, _______, _______, _______, _______,		_______, _______, _______, _______, _______,  RESET ,
      NK_TOGG, _______, _______, _______, _______, _______,		_______, _______, _______, _______, _______, NK_TOGG,
@@ -179,6 +120,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 */
 
+/*
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
 	case KVM_SW:
@@ -188,4 +130,59 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	break;
     }
     return true;
+}*/
+
+LEADER_EXTERNS();
+
+void matrix_scan_user(void) {
+    LEADER_DICTIONARY() {
+	leading = false;
+	leader_end();
+
+	// KVM switch next
+	SEQ_ONE_KEY(KC_LEAD) {
+	    SEND_STRING(SS_TAP(X_SLCK) SS_TAP(X_SLCK) SS_TAP(X_ENT));
+	}
+	// KVM switch to input 1
+	SEQ_ONE_KEY(KC_Q) {
+	    SEND_STRING(SS_TAP(X_SLCK) SS_TAP(X_SLCK) "1" SS_TAP(X_ENT));
+	}
+	// KVM switch to input 2
+	SEQ_ONE_KEY(KC_W) {
+	    SEND_STRING(SS_TAP(X_SLCK) SS_TAP(X_SLCK) "2" SS_TAP(X_ENT));
+	}
+	// KVM switch to input 3
+	SEQ_ONE_KEY(KC_E) {
+	    SEND_STRING(SS_TAP(X_SLCK) SS_TAP(X_SLCK) "3" SS_TAP(X_ENT));
+	}
+	// KVM switch to input 4
+	SEQ_ONE_KEY(KC_R) {
+	    SEND_STRING(SS_TAP(X_SLCK) SS_TAP(X_SLCK) "4" SS_TAP(X_ENT));
+	}
+
+	// git shortcuts
+	SEQ_TWO_KEYS(KC_G, KC_A) {
+	    SEND_STRING("git add ");
+	}
+	SEQ_TWO_KEYS(KC_G, KC_C) {
+	    SEND_STRING("git commit ");
+	}
+	SEQ_TWO_KEYS(KC_G, KC_P) {
+	    SEND_STRING("git push ");
+	}
+	SEQ_TWO_KEYS(KC_G, KC_S) {
+	    SEND_STRING("git status\n");
+	}
+
+	// swedish characters on eu keymap
+	SEQ_ONE_KEY(KC_MINS) {
+	    SEND_STRING(SS_DOWN(X_RALT) "w" SS_UP(X_RALT));
+	}
+	SEQ_ONE_KEY(KC_QUOT) {
+	    SEND_STRING(SS_DOWN(X_RALT) "a" SS_UP(X_RALT));
+	}
+	SEQ_ONE_KEY(KC_SCLN) {
+	    SEND_STRING(SS_DOWN(X_RALT) "o" SS_UP(X_RALT));
+	}
+    }
 }
