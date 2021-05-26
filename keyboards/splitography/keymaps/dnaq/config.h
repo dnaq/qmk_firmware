@@ -22,4 +22,6 @@
 // prevent holdback of 1-3 key TxBolt chords
 #define PREVENT_STUCK_MODIFIERS
 
+#define QMK_KEYS_PER_SCAN 4
+
 #endif
