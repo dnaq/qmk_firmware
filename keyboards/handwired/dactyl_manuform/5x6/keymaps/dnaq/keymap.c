@@ -12,8 +12,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      _____________________QWERTY__L3_____________________,              _____________________QWERTY__R3_____________________,
                        KC_LEFT, KC_RGHT,                                                  KC_DOWN,   KC_UP,
                                           MO(_L3), KC_BSPC,  KC_SPC, MO(_L4),
-                                           CT_ESC,  KC_TAB,  KC_ENT, CU_LEAD,
-                                          KC_LALT, KC_LGUI,  KC_DEL, KC_RALT
+                                          KC_LGUI,  KC_TAB,  KC_ENT, CU_LEAD,
+                                          KC_LALT, XXXXXXX,  KC_DEL, KC_RALT
+  ),
+  [_NW] = LAYOUT_wrapped(
+     _____________________ADNWSE2_L0_____________________,              _____________________ADNWSE2_R0_____________________,
+     _____________________ADNWSE2_L1_____________________,              _____________________ADNWSE2_R1_____________________,
+     _____________________ADNWSE2_L2_____________________,              _____________________ADNWSE2_R2_____________________,
+     _____________________ADNWSE2_L3_____________________,              _____________________ADNWSE2_R3_____________________,
+                       KC_LEFT, KC_RGHT,                                                  KC_DOWN,   KC_UP,
+                                          MO(_L3),    KC_E,  KC_SPC, MO(_L4),
+                                          KC_LGUI, KC_BSPC,  KC_ENT, CU_LEAD,
+                                          KC_LALT,  KC_TAB,  KC_DEL, KC_RALT
   ),
   [_L3] = LAYOUT_wrapped(
      _____________________NEO2_L3_L0_____________________,              _____________________NEO2_L3_R0_____________________,
@@ -38,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_AD] = LAYOUT_5x6(
       KC_F11,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F12,
      _______, DF(_QW), _______, _______, _______,   RESET,               KC_F12,   KC_F7,   KC_F8,   KC_F9, _______, _______,
-     _______, _______, _______, _______, _______, _______,               KC_F11,   KC_F4,   KC_F5,   KC_F6, _______, _______,
+     _______, DF(_NW), _______, _______, _______, _______,               KC_F11,   KC_F4,   KC_F5,   KC_F6, _______, _______,
      _______, _______, _______, _______, _______,   RESET,               KC_F10,   KC_F1,   KC_F2,   KC_F3, _______, _______,
                        _______, _______,                                                  _______, _______,
                                           _______, _______, _______, _______,
