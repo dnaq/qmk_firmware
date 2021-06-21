@@ -16,10 +16,19 @@ enum keycodes {
     CU_CIRC,
     CU_GRV,
     CU_TILD,
+
+    // callum style one shot mods
+    CM_LSFT,
+    CM_LCTL,
+    CM_LALT,
+    CM_LGUI,
+    CM_RSFT,
+    CM_RCTL,
+    CM_RALT,
+    CM_RGUI,
+
     KEYMAP_SAFE_RANGE,
 };
-
-#define OSM_SFT OSM(MOD_LSFT)
 
 #define CT_ESC LCTL_T(KC_ESC)
 #define CT_ADIA RCTL_T(SE_ADIA)
@@ -83,3 +92,13 @@ enum keycodes {
 #define _____________________NEO2_L4_R1_____________________   SE_EQL,   KC_7,   KC_8,   KC_9,SE_ASTR,_______
 #define _____________________NEO2_L4_R2_____________________  SE_PLUS,   KC_4,   KC_5,   KC_6,   KC_0,_______
 #define _____________________NEO2_L4_R3_____________________  SE_MINS,   KC_1,   KC_2,   KC_3,SE_SLSH,_______
+
+#define _____________________ADJUST__L0_____________________  _______,_______,_______,_______,_______,_______
+#define _____________________ADJUST__L1_____________________   KC_F11,  KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5
+#define _____________________ADJUST__L2_____________________  _______,CM_LSFT,CM_LCTL,CM_LGUI,CM_LALT,_______
+#define _____________________ADJUST__L3_____________________  _______,_______,_______,_______,_______,  RESET
+
+#define _____________________ADJUST__R0_____________________  _______,_______,_______,_______,_______,_______
+#define _____________________ADJUST__R1_____________________    KC_F6,  KC_F7,  KC_F8,  KC_F9, KC_F10, KC_F12
+#define _____________________ADJUST__R2_____________________  _______,CM_RALT,CM_RGUI,CM_RCTL,CM_RSFT,_______
+#define _____________________ADJUST__R3_____________________  _______,_______,_______,_______,_______,_______
