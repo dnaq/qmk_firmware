@@ -40,7 +40,7 @@ enum keycodes {
 
 #define _____________________QWERTY__R0_____________________     KC_6,   KC_7,   KC_8,   KC_9,   KC_0,KC_MINS
 #define _____________________QWERTY__R1_____________________     KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,SE_ARNG
-#define _____________________QWERTY__R2_____________________     KC_H,   KC_J,   KC_K,   KC_L,SE_ODIA,CT_ADIA
+#define _____________________QWERTY__R2_____________________     KC_H,   KC_J,   KC_K,   KC_L,SE_ODIA,SE_ADIA
 #define _____________________QWERTY__R3_____________________     KC_N,   KC_M,KC_COMM, KC_DOT,SE_SLSH,KC_RSFT
 
 #define _____________________ADNWSE__L0_____________________   KC_GRV,   KC_1,   KC_2,   KC_3,   KC_4,   KC_5
