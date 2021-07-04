@@ -179,8 +179,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 bool is_oneshot_cancel_key(uint16_t keycode) {
     switch (keycode) {
-        case MO(_L3):
-        case MO(_L4):
+        case CT_ESC:
             return true;
         default:
             return false;
