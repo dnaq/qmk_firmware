@@ -173,6 +173,7 @@ layer_state_t layer_state_set_keymap(layer_state_t state) {
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
+    return state;
     state = layer_state_set_keymap(state);
     return update_tri_layer_state(state, _L3, _L4, _AD);
 }
@@ -188,8 +189,10 @@ bool is_oneshot_cancel_key(uint16_t keycode) {
 
 bool is_oneshot_ignored_key(uint16_t keycode) {
     switch (keycode) {
-        case MO(_L3):
-        case MO(_L4):
+        case MO(_NM):
+        case MO(_NV):
+        case MO(_SR):
+        case MO(_SL):
         case KC_LSFT:
         case CM_LSFT:
         case CM_LCTL:
