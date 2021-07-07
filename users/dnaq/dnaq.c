@@ -173,9 +173,8 @@ layer_state_t layer_state_set_keymap(layer_state_t state) {
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    return state;
     state = layer_state_set_keymap(state);
-    return update_tri_layer_state(state, _L3, _L4, _AD);
+    return update_tri_layer_state(state, _SL, _SR, _AD);
 }
 
 bool is_oneshot_cancel_key(uint16_t keycode) {
